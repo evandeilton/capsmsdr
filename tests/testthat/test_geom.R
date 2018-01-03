@@ -1,18 +1,19 @@
-context("Testing visualization tools")
+
+context("Test visualization tools")
 
 test_that("ploting functions gives the right objects", {
-  # load data
-  file_path <- system.file("extdata", "signif.tsv", package = "MSDR")
-  signif <- read_tsv(file_path) %>%
+  # data
+  fp <- system.file("data", "earthquake.csv", package = "capsmsdr")
+  signif <- read_tsv(fp) %>%
     eq_clean_date %>%
     eq_clean_location
 
-  # make plot
+  # plot
   p <- signif %>%
-    filter(COUNTRY == 'MEXICO') %>%
-    ggplot(aes(date = date,
-               xmin = as.Date('1995-01-01'),
-               xmax = as.Date('2000-12-30'),
+    filter(COUNTRY == 'BRAZIL') %>%
+    ggplot(aes(date = DATE,
+               xmin = as.Date('2000-01-01'),
+               xmax = as.Date('2015-12-30'),
                y = COUNTRY,
                colour = DEATHS,
                fill = DEATHS,
@@ -29,24 +30,24 @@ test_that("ploting functions gives the right objects", {
           panel.grid = element_blank(),
           panel.background = element_blank())
 
-  # plot object
+  # plot
   expect_is(p, class = c('gg', 'ggplot'))
 })
 
 
 test_that("ploting function passes the right mapping aes", {
-  # load data
-  file_path <- system.file("extdata", "signif.tsv", package = "MSDR")
-  signif <- read_tsv(file_path) %>%
+  # data
+  fp <- system.file("data", "earthquake.csv", package = "capsmsdr")
+  signif <- read_tsv(fp) %>%
     eq_clean_date %>%
     eq_clean_location
 
   # make plot
   p <- signif %>%
-    filter(COUNTRY == 'MEXICO') %>%
-    ggplot(aes(date = date,
-               xmin = as.Date('1995-01-01'),
-               xmax = as.Date('2000-12-30'),
+    filter(COUNTRY == 'BRAZIL') %>%
+    ggplot(aes(date = DATE,
+               xmin = as.Date('2000-01-01'),
+               xmax = as.Date('2015-12-30'),
                y = COUNTRY,
                colour = DEATHS,
                fill = DEATHS,
@@ -65,7 +66,7 @@ test_that("ploting function passes the right mapping aes", {
 
   # mapping objects
   expect_identical(p$mapping$y, as.name('COUNTRY'))
-  expect_identical(p$mapping$date, as.name('date'))
+  expect_identical(p$mapping$DATE, as.name('DATE'))
   expect_identical(p$mapping$colour, as.name('DEATHS'))
   expect_identical(p$mapping$fill, as.name('DEATHS'))
   expect_identical(p$mapping$size, as.name('EQ_PRIMARY'))

@@ -1,6 +1,6 @@
 Package: capsmsdr
 Type: Package
-Title: Create Visualization for NOAA earthquak data
+Title: Build Visualization for NOAA earthquak data
 Version: 1.0.0
 Author: José E Lopes
 Maintainer: José E Lopes <evandeilton@gmail.com>
