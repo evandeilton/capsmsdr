@@ -3,12 +3,12 @@
 \docType{data}
 \name{theme_timeline}
 \alias{theme_timeline}
-\title{Modified theme to use with geom_timeline}
+\title{Extra Theme to use with geom_timeline}
 \format{An object of class \code{theme} (inherits from \code{gg}) of length 8.}
 \usage{
 theme_timeline
 }
 \description{
-Modified theme to use with geom_timeline
+Extra Theme to use with geom_timeline
 }
 \keyword{datasets}

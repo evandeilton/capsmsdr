@@ -2,28 +2,29 @@
 % Please edit documentation in R/leaflet.R
 \name{eq_map}
 \alias{eq_map}
-\title{Map earthquak data to a leaflet tile}
+\title{Map earthquak data}
 \usage{
 eq_map(df)
 }
 \arguments{
-\item{df}{A data.frame such as this obtainded from NOAA.}
+\item{df}{A data.frame}
 }
 \value{
-A graph with markers for specified earthquaks and popups with info; location, magnitude and deaths.
+A plot with info from location, magnitude and deaths.
 }
 \description{
-Map earthquak data to a leaflet tile
+Map earthquak data
 }
 \examples{
 \dontrun{
-# load and clean data
-file_path <- system.file("extdata", "signif.tsv", package = "MSDR")
-signif <- read_tsv(file_path) \%>\%
+# Read and clean data
+fp <- system.file("data", "earthquake.csv", package = "capsmsdr")
+signif <- read_tsv(fp) \%>\%
   eq_clean_date \%>\%
   eq_clean_location
 
-# make graph
+# Plot
+
 signif \%>\%
 filter(COUNTRY == 'MEXICO' & year(date) >= 2000) \%>\%
   mutate(popup_text = eq_create_label(.)) \%>\%

@@ -2,44 +2,46 @@
 % Please edit documentation in R/timeline.R
 \name{geom_timeline_label}
 \alias{geom_timeline_label}
-\title{Timeline label}
+\title{Label for timeline}
 \usage{
 geom_timeline_label(mapping = NULL, data = NULL, stat = "identity",
   position = "identity", na.rm = FALSE, show.legend = FALSE,
   inherit.aes = TRUE, ...)
 }
 \arguments{
-\item{mapping}{Set of aethetics created by aes.}
+\item{mapping}{Aethetics by aes.}
 
-\item{data}{A data.fram such as that obtained from NOAA}
+\item{data}{A data.fram}
 
-\item{stat}{A string of statistical transfromation.}
+\item{stat}{A name from a statistical transfromation}
 
 \item{position}{Position adjustment.}
 
-\item{na.rm}{A logical for dealing with missing values.}
+\item{na.rm}{Remove missing values}
 
-\item{show.legend}{A logical for showing legend or not.}
+\item{show.legend}{Show legend, TRUE or FALSE}
 
-\item{inherit.aes}{A logical of whether or not override default aesthetics.}
+\item{inherit.aes}{Override default aesthetics, TRUE or FALSE}
 
-\item{...}{Other arguments passed to layer.}
+\item{...}{Extra arguments}
 }
 \description{
-Timeline label
+Label for timeline
 }
 \details{
-Adds labels for the locations of individual earthquaks. Used with geom_timeline.
+Labels for the locations of earthquaks.
 }
 \examples{
 \dontrun{
-# load and clean data
-file_path <- system.file("extdata", "signif.tsv", package = "MSDR")
-signif <- read_tsv(file_path) \%>\%
+# Read and clean data
+
+fp <- system.file("data", "earthquake.csv", package = "capsmsdr")
+
+signif <- read_tsv(fp) \%>\%
   eq_clean_date \%>\%
   eq_clean_location
 
-# make graph
+# Plot
 signif \%>\%
 filter(COUNTRY == 'MEXICO') \%>\%
   ggplot(aes(date = date,

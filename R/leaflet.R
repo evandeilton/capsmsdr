@@ -1,17 +1,20 @@
-#' Create earthquak label
+#' Create labels for earthquak data
 #'
-#' @param df A data.frame such as this obtainded from NOAA.
+#' @param df A data.frame.
 #'
-#' @return A column of earthquak annotation; locaion, magnitude and deaths. Ignores the fiels when NA.
+#' @return A column of earthquak annotation; locaion, magnitude and deaths. Removes NA.
 #' @examples
 #' \dontrun{
-#' # load and clean data
-#' file_path <- system.file("extdata", "signif.tsv", package = "MSDR")
-#' signif <- read_tsv(file_path) %>%
+#' # Read and clean data
+#' 
+#' fp <- system.file("data", "earthquake.csv", package = "capsmsdr")
+#' 
+#' signif <- read_tsv(fp) %>%
 #'   eq_clean_date %>%
 #'   eq_clean_location
 #'
-#' # make graph
+#' # plot
+#' 
 #' signif %>%
 #' filter(COUNTRY == 'MEXICO' & year(date) >= 2000) %>%
 #'   mutate(popup_text = eq_create_label(.)) %>%
@@ -30,20 +33,21 @@ eq_create_label <- function(df) {
     as.character
 }
 
-#' Map earthquak data to a leaflet tile
+#' Map earthquak data
 #'
-#' @param df A data.frame such as this obtainded from NOAA.
+#' @param df A data.frame
 #'
-#' @return A graph with markers for specified earthquaks and popups with info; location, magnitude and deaths.
+#' @return A plot with info from location, magnitude and deaths.
 #' @examples
 #' \dontrun{
-#' # load and clean data
-#' file_path <- system.file("extdata", "signif.tsv", package = "MSDR")
-#' signif <- read_tsv(file_path) %>%
+#' # Read and clean data
+#' fp <- system.file("data", "earthquake.csv", package = "capsmsdr")
+#' signif <- read_tsv(fp) %>%
 #'   eq_clean_date %>%
 #'   eq_clean_location
 #'
-#' # make graph
+#' # Plot
+#' 
 #' signif %>%
 #' filter(COUNTRY == 'MEXICO' & year(date) >= 2000) %>%
 #'   mutate(popup_text = eq_create_label(.)) %>%

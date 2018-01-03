@@ -2,46 +2,46 @@
 % Please edit documentation in R/timeline.R
 \name{geom_timeline}
 \alias{geom_timeline}
-\title{Timeline earthquak graph}
+\title{Earthquak graph with timeline}
 \usage{
 geom_timeline(mapping = NULL, data = NULL, stat = "identity",
   position = "identity", na.rm = FALSE, show.legend = NA,
   inherit.aes = TRUE, ...)
 }
 \arguments{
-\item{mapping}{Set of aethetics created by aes.}
+\item{mapping}{aethetics by aes}
 
-\item{data}{A data.fram such as that obtained from NOAA}
+\item{data}{A data.fram}
 
-\item{stat}{A string of statistical transfromation.}
+\item{stat}{A name from a statistical transfromation}
 
-\item{position}{Position adjustment.}
+\item{position}{Position adjust}
 
-\item{na.rm}{A logical for dealing with missing values.}
+\item{na.rm}{Remove missing values}
 
-\item{show.legend}{A logical for showing legend or not.}
+\item{show.legend}{Show legend, TRUE or FALSE}
 
-\item{inherit.aes}{A logical of whether or not override default aesthetics.}
+\item{inherit.aes}{Override default aesthetics, TRUE or FALSE}
 
-\item{...}{Other arguments passed to layer}
+\item{...}{Extra arguments}
 }
 \description{
-Timeline earthquak graph
+Earthquak graph with timeline
 }
 \details{
-A timeline plot is a representation of individual earthquaks ordered by their
- corresponding dates as points; the color of the point represent the number of deaths
- that resulted from the event and the size represents the magnitude of the event.
+A timeline plot earthquaks by dates. Colors represents number of deaths and size is the magnitude of the earthquaks.
 }
 \examples{
 \dontrun{
-# load and clean data
-file_path <- system.file("extdata", "signif.tsv", package = "MSDR")
-signif <- read_tsv(file_path) \%>\%
+# Read and clean data
+
+fp <- system.file("data", "earthquake.csv", package = "capsmsdr")
+
+signif <- read_tsv(fp) \%>\%
   eq_clean_date \%>\%
   eq_clean_location
 
-# make graph
+# Plot
 signif \%>\%
 filter(COUNTRY == 'MEXICO') \%>\%
   ggplot(aes(date = date,

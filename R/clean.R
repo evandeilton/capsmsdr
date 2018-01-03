@@ -6,8 +6,8 @@
 #' @import dplyr
 #' @examples
 #' \dontrun{
-#' file_path <- system.file("data", "earthquake.csv", package = "capsmsdr")
-#' signif <- read_delim(file_path, delim = "\t") %>%
+#' fp <- system.file("data", "earthquake.csv", package = "capsmsdr")
+#' signif <- read_delim(fp, delim = "\t") %>%
 #'   eq_clean_date %>%
 #' }
 #' @export
@@ -26,8 +26,8 @@ eq_clean_date <- function(data) {
 #' @return The input data.fram plus a location column
 #' @examples
 #' \dontrun{
-#' file_path <- system.file("data", "earthquake.csv", package = "capsmsdr")
-#' signif <- read_delim(file_path, delim = "\t") %>%
+#' fp <- system.file("data", "earthquake.csv", package = "capsmsdr")
+#' signif <- read_delim(fp, delim = "\t") %>%
 #'   eq_clean_date %>%
 #'   eq_clean_location
 #' }

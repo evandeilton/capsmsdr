@@ -2,28 +2,31 @@
 % Please edit documentation in R/leaflet.R
 \name{eq_create_label}
 \alias{eq_create_label}
-\title{Create earthquak label}
+\title{Create labels for earthquak data}
 \usage{
 eq_create_label(df)
 }
 \arguments{
-\item{df}{A data.frame such as this obtainded from NOAA.}
+\item{df}{A data.frame.}
 }
 \value{
-A column of earthquak annotation; locaion, magnitude and deaths. Ignores the fiels when NA.
+A column of earthquak annotation; locaion, magnitude and deaths. Removes NA.
 }
 \description{
-Create earthquak label
+Create labels for earthquak data
 }
 \examples{
 \dontrun{
-# load and clean data
-file_path <- system.file("extdata", "signif.tsv", package = "MSDR")
-signif <- read_tsv(file_path) \%>\%
+# Read and clean data
+
+fp <- system.file("data", "earthquake.csv", package = "capsmsdr")
+
+signif <- read_tsv(fp) \%>\%
   eq_clean_date \%>\%
   eq_clean_location
 
-# make graph
+# plot
+
 signif \%>\%
 filter(COUNTRY == 'MEXICO' & year(date) >= 2000) \%>\%
   mutate(popup_text = eq_create_label(.)) \%>\%

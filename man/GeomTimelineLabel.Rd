@@ -3,8 +3,12 @@
 \docType{data}
 \name{GeomTimelineLabel}
 \alias{GeomTimelineLabel}
-\title{Geom object for drawing timeline labels}
+\title{Geom for timeline labels}
+\format{An object of class \code{GeomTimeline} (inherits from \code{Geom}, \code{ggproto}) of length 3.}
+\usage{
+GeomTimelineLabel
+}
 \description{
-Geom object for drawing timeline labels
+Geom for timeline labels
 }
 \keyword{datasets}
