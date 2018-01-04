@@ -7,7 +7,7 @@
 #' @examples
 #' \dontrun{
 #' fp <- system.file("data", "earthquake.csv", package = "capsmsdr")
-#' signif <- read_delim(fp, delim = "\t") %>%
+#' da <- read_delim(fp, delim = "\t") %>%
 #'   eq_clean_date %>%
 #' }
 #' @export
@@ -27,7 +27,7 @@ eq_clean_date <- function(data) {
 #' @examples
 #' \dontrun{
 #' fp <- system.file("data", "earthquake.csv", package = "capsmsdr")
-#' signif <- read_delim(fp, delim = "\t") %>%
+#' da <- read_delim(fp, delim = "\t") %>%
 #'   eq_clean_date %>%
 #'   eq_clean_location
 #' }
@@ -46,8 +46,12 @@ eq_clean_location <- function(data) {
 #' 
 #' @source  \url{https://www.ngdc.noaa.gov/nndc/struts/form?t=101650&s=1&d=1}
 #' @format A data frame with large number of columns
+#' @export
 #' @examples
 #' \dontrun{
 #' earthquake
 #' }
-"earthquake"
+earthquake <- function () {
+  fp <- system.file("data", "earthquake.csv", package = "capsmsdr")
+  read_delim(fp, delim = "\t")
+}

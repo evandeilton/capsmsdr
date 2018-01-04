@@ -8,12 +8,20 @@ vignette: >
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 ---
+
 # The capsmsdr package
 
 This is a simple vignette for the packege capsmsdr, a project for the capstone for Coursera's mastering software development in R specilaization.
 The general idea is to read and transfor a data set from earthquakes from NOOA site. After get and clean data, we must buil a set of vizualizin functions and geos
 to create a timeline vizualization os the data.
 We adopt the tidy pardigm for whole package.
+
+
+## Inatall package
+
+```{r chunk0, eval=FALSE}
+devtools::install_github('evandeilton/capsmsdr')
+```
 
 # Get and clean data 
 

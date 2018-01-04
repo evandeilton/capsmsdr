@@ -4,10 +4,10 @@
 \alias{eq_map}
 \title{Map earthquak data}
 \usage{
-eq_map(df)
+eq_map(data)
 }
 \arguments{
-\item{df}{A data.frame}
+\item{data}{A data.frame}
 }
 \value{
 A plot with info from location, magnitude and deaths.

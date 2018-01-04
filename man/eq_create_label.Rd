@@ -4,10 +4,10 @@
 \alias{eq_create_label}
 \title{Create labels for earthquak data}
 \usage{
-eq_create_label(df)
+eq_create_label(data)
 }
 \arguments{
-\item{df}{A data.frame.}
+\item{data}{A data.frame.}
 }
 \value{
 A column of earthquak annotation; locaion, magnitude and deaths. Removes NA.
