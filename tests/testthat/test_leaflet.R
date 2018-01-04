@@ -2,7 +2,7 @@ context("Test mapping tools")
 
 test_that("est eq_map gives the right object", {
   # data
-  fp <- system.file("data", "earthquake.csv", package = "capsmsdr")
+  fp <- system.file("exdata", "earthquake.csv", package = "capsmsdr")
   da <- read_delim(fp, delim = "\t", progress = 500) %>%
     eq_clean_date %>%
     eq_clean_location

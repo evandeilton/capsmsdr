@@ -7,7 +7,7 @@
 #' \dontrun{
 #' # Read and clean data
 #' 
-#' fp <- system.file("data", "earthquake.csv", package = "capsmsdr")
+#' fp <- system.file("exdata", "earthquake.csv", package = "capsmsdr")
 #' 
 #' signif <- read_tsv(fp) %>%
 #'   eq_clean_date %>%
@@ -41,7 +41,7 @@ eq_create_label <- function(data) {
 #' @examples
 #' \dontrun{
 #' # Read and clean data
-#' fp <- system.file("data", "earthquake.csv", package = "capsmsdr")
+#' fp <- system.file("exdata", "earthquake.csv", package = "capsmsdr")
 #' signif <- read_tsv(fp) %>%
 #'   eq_clean_date %>%
 #'   eq_clean_location

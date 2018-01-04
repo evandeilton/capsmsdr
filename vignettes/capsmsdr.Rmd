@@ -43,7 +43,7 @@ We put a copy of the data inside our packege to better. No editing was made in o
 Read data from system folder where the packahe where installed and clear dates and location.
 
 ```{r chunk01}
-fp <- system.file("data", "earthquake.csv", package = "capsmsdr")
+fp <- system.file("exdata", "earthquake.csv", package = "capsmsdr")
 df <- read_tsv(fp) %>%
   eq_clean_date %>%
   eq_clean_location

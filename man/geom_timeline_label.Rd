@@ -35,7 +35,7 @@ Labels for the locations of earthquaks.
 \dontrun{
 # Read and clean data
 
-fp <- system.file("data", "earthquake.csv", package = "capsmsdr")
+fp <- system.file("exdata", "earthquake.csv", package = "capsmsdr")
 
 signif <- read_tsv(fp) \%>\%
   eq_clean_date \%>\%

@@ -17,7 +17,7 @@ This function use some fnctions from stringr package to fix data fom location na
 }
 \examples{
 \dontrun{
-fp <- system.file("data", "earthquake.csv", package = "capsmsdr")
+fp <- system.file("exdata", "earthquake.csv", package = "capsmsdr")
 da <- read_delim(fp, delim = "\\t") \%>\%
   eq_clean_date \%>\%
   eq_clean_location

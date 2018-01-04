@@ -2,7 +2,7 @@ context("Test visualization tools")
 
 test_that("ploting functions gives the right objects", {
   # data
-  fp <- system.file("data", "earthquake.csv", package = "capsmsdr")
+  fp <- system.file("exdata", "earthquake.csv", package = "capsmsdr")
   da <- read_delim(fp, delim = "\t") %>%
     eq_clean_date %>%
     eq_clean_location
@@ -36,7 +36,7 @@ test_that("ploting functions gives the right objects", {
 
 test_that("ploting function passes the right mapping aes", {
   # data
-  fp <- system.file("data", "earthquake.csv", package = "capsmsdr")
+  fp <- system.file("exdata", "earthquake.csv", package = "capsmsdr")
   da <- read_delim(fp, delim = "\t") %>%
     eq_clean_date %>%
     eq_clean_location

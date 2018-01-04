@@ -6,7 +6,7 @@
 #' @import dplyr
 #' @examples
 #' \dontrun{
-#' fp <- system.file("data", "earthquake.csv", package = "capsmsdr")
+#' fp <- system.file("exdata", "earthquake.csv", package = "capsmsdr")
 #' da <- read_delim(fp, delim = "\t") %>%
 #'   eq_clean_date %>%
 #' }
@@ -26,7 +26,7 @@ eq_clean_date <- function(data) {
 #' @return The input data.fram plus a location column
 #' @examples
 #' \dontrun{
-#' fp <- system.file("data", "earthquake.csv", package = "capsmsdr")
+#' fp <- system.file("exdata", "earthquake.csv", package = "capsmsdr")
 #' da <- read_delim(fp, delim = "\t") %>%
 #'   eq_clean_date %>%
 #'   eq_clean_location
@@ -40,18 +40,18 @@ eq_clean_location <- function(data) {
 }
 
 
-#' NOOA 's earthquake data set
-#'
-#' The Significant Earthquake Database contains information on destructive earthquakes from 2150 B.C. to the present that meet at least one of the following criteria: Moderate damage (approximately $1 million or more), 10 or more deaths, Magnitude 7.5 or greater, Modified Mercalli Intensity X or greater, or the earthquake generated a tsunami.
-#' 
-#' @source  \url{https://www.ngdc.noaa.gov/nndc/struts/form?t=101650&s=1&d=1}
-#' @format A data frame with large number of columns
-#' @export
-#' @examples
-#' \dontrun{
-#' earthquake
-#' }
-earthquake <- function () {
-  fp <- system.file("data", "earthquake.csv", package = "capsmsdr")
-  read_delim(fp, delim = "\t")
-}
+# NOOA 's earthquake data set
+#
+# The Significant Earthquake Database contains information on destructive earthquakes from 2150 B.C. to the present that meet at least one of the following criteria: Moderate damage (approximately $1 million or more), 10 or more deaths, Magnitude 7.5 or greater, Modified Mercalli Intensity X or greater, or the earthquake generated a tsunami.
+# 
+# @source  \url{https://www.ngdc.noaa.gov/nndc/struts/form?t=101650&s=1&d=1}
+# @format A data frame with large number of columns
+# @export
+# @examples
+# \dontrun{
+# earthquake
+# }
+# earthquake <- function () {
+#  fp <- system.file("data", "earthquake.csv", package = "capsmsdr")
+#  read_delim(fp, delim = "\t")
+#}
