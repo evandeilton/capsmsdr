@@ -1,6 +1,6 @@
 #' Create labels for earthquak data
 #'
-#' @param df A data.frame.
+#' @param data A data.frame.
 #'
 #' @return A column of earthquak annotation; locaion, magnitude and deaths. Removes NA.
 #' @examples
@@ -22,8 +22,8 @@
 #' }
 #' @import dplyr
 #' @export
-eq_create_label <- function(df) {
-  df %>%
+eq_create_label <- function(data) {
+  data %>%
   dplyr::mutate(location = ifelse(is.na(LOCATION), '', paste("<b>Location: </b>", LOCATION, "<br>")),
                 magnitude = ifelse(is.na(EQ_PRIMARY), '', paste("<b>Magnitude: </b>", EQ_PRIMARY, "<br>")),
                 deaths = ifelse(is.na(DEATHS), '', paste("<b>Total deaths: </b>", DEATHS))) %>%
@@ -35,7 +35,7 @@ eq_create_label <- function(df) {
 
 #' Map earthquak data
 #'
-#' @param df A data.frame
+#' @param data A data.frame
 #'
 #' @return A plot with info from location, magnitude and deaths.
 #' @examples
@@ -55,8 +55,8 @@ eq_create_label <- function(df) {
 #' }
 #' @import leaflet
 #' @export
-eq_map <- function(df) {
-  leaflet::leaflet(df) %>%
+eq_map <- function(data) {
+  leaflet::leaflet(data) %>%
     leaflet::addProviderTiles(providers$CartoDB) %>%
     leaflet::addCircleMarkers(~LONGITUDE, ~LATITUDE,
                      popup = ~popup_text,
